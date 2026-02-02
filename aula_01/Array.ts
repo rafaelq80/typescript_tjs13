@@ -1,4 +1,4 @@
-import leia = require("readline-sync");
+import leia from "readline-sync";
 
 const numeros: Array<number> = new Array<number>();
 
@@ -8,7 +8,7 @@ numeros.push(5);
 numeros.push(1,5,7,9);
 
 numeros.push(leia.questionInt("Digite um numero: "));
-//console.table(numeros)
+console.table(numeros)
 
 for(let numero of numeros){
     console.log(numero)

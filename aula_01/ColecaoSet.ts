@@ -1,4 +1,4 @@
-import leia = require("readline-sync");
+import leia from "readline-sync";
 
 const cores: Set<string> = new Set<string>();
 
@@ -7,6 +7,8 @@ cores.add("Verde");
 cores.add("Azul");
 cores.add("Vermelho");
 cores.add("Amarelo");
+
+cores.add(leia.question("Digite uma cor: "));
 
 console.table(cores)
 
