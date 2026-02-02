@@ -124,6 +124,90 @@ ts-node HelloWorld.ts
 
 <br />
 
+## Configurações - `tsconfig.json`
+
+
+
+### **`target: "es2020"`**
+
+Define a versão do JavaScript gerado como **ECMAScript 2020**.
+Permite usar recursos modernos, como `async/await`, `optional chaining` e `Promise.allSettled`.
+
+------
+
+### **`module: "commonjs"`**
+
+Define o sistema de módulos como **CommonJS**, padrão do Node.js.
+Permite usar `require()` e `module.exports` ou compatibilidade com `import`.
+
+------
+
+### **`esModuleInterop: true`**
+
+Facilita a interoperabilidade entre **CommonJS** e **ES Modules**.
+Permite importar módulos CommonJS assim:
+
+```ts
+import express from "express";
+```
+
+Em vez de:
+
+```ts
+import * as express from "express";
+```
+
+------
+
+### **`forceConsistentCasingInFileNames: true`**
+
+Garante consistência entre **maiúsculas e minúsculas** nos imports.
+Evita erros em sistemas Linux/macOS (case-sensitive).
+
+Exemplo de erro evitado:
+
+```ts
+import User from "./user"; // errado se o arquivo for User.ts
+```
+
+------
+
+### **`strict: true`**
+
+Ativa o **modo estrito completo** do TypeScript.
+Força tipagem mais segura e reduz bugs em tempo de execução.
+
+Inclui regras como:
+
+- Não permitir `any` implícito
+- Melhor verificação de `null` e `undefined`
+- Checagem mais rigorosa em funções e classes
+
+------
+
+### **`skipLibCheck: true`**
+
+Ignora a verificação de tipos em arquivos `.d.ts` (bibliotecas externas).
+Resultado:
+
+- Compilação **mais rápida**
+- Menos erros vindos de dependências externas
+
+<br />
+
+### Resumo Rápido (o que isso garante)
+
+| Benefício                | Impacto                            |
+| ------------------------ | ---------------------------------- |
+| JavaScript moderno       | `target: es2020`                   |
+| Compatibilidade Node.js  | `module: commonjs`                 |
+| Imports mais simples     | `esModuleInterop`                  |
+| Menos bugs               | `strict`                           |
+| Build mais rápido        | `skipLibCheck`                     |
+| Consistência de arquivos | `forceConsistentCasingInFileNames` |
+
+<br />
+
 ## Contribuições
 
 
